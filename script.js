@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return isValid;
   }
     
-  
+
 //for gallery part
 document.addEventListener('DOMContentLoaded', function() {
     // Filter functionality
@@ -345,4 +345,50 @@ document.addEventListener('DOMContentLoaded', function() {
             backToTopButton.classList.remove('active');
         }
     });
+});
+
+// Function to toggle mobile menu
+function toggleMenu() {
+    document.querySelector('.dropdown').classList.toggle('active');
+}
+
+// Form validation function
+function validateForm() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    // Basic validation
+    if (name.trim() === '' || email.trim() === '' || subject.trim() === '' || message.trim() === '') {
+        alert('Please fill all fields');
+        return false;
+    }
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return false;
+    }
+    
+    // Alert on successful submission
+    alert('You have submitted the form');
+    
+    // Clear form fields after submission
+    document.getElementById('contactForm').reset();
+    
+    // Prevent actual form submission to server
+    return false;
+}
+
+// Add event listener to the form when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            validateForm();
+        });
+    }
 });
