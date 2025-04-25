@@ -184,27 +184,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     return isValid;
   }
+    
   
-  // Display error message
-  function displayError(inputElement, message) {
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-message';
-    errorDiv.innerText = message;
-    errorDiv.style.color = 'red';
-    errorDiv.style.fontSize = '0.8rem';
-    errorDiv.style.marginTop = '5px';
-    
-    inputElement.parentNode.appendChild(errorDiv);
-    inputElement.style.borderColor = 'red';
-    
-    // Remove error styling when input changes
-    inputElement.addEventListener('input', function() {
-        this.style.borderColor = '';
-        const error = this.parentNode.querySelector('.error-message');
-        if(error) error.remove();
-    });
-  }
-
 //for gallery part
 document.addEventListener('DOMContentLoaded', function() {
     // Filter functionality
